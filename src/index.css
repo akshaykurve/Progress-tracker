@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --paper: #e4e8ef;
+  --ink: #2b3140;
+  --muted: #667086;
+  --accent: #3b7ddd;
+  --sh-l: #ffffff;
+  --sh-d: #b9c1d0;
+
+  --blue-bg: #bcd3f5;
+  --blue-fg: #1f4a8a;
+  --green-bg: #b4dcab;
+  --green-fg: #1f5a2a;
+  --yellow-bg: #f6dc85;
+  --yellow-fg: #664e00;
+  --rose-bg: #eeabab;
+  --rose-fg: #7a2828;
+  color-scheme: light;
+}
+
+.dark {
+  --paper: #222630;
+  --ink: #e6e9f0;
+  --muted: #9aa3b6;
+  --accent: #6ea0f0;
+  --sh-l: #2e3340;
+  --sh-d: #15171d;
+
+  --blue-bg: #2d4466;
+  --blue-fg: #b0cdf7;
+  --green-bg: #2c4b36;
+  --green-fg: #aee3bc;
+  --yellow-bg: #574a1d;
+  --yellow-fg: #f2d97c;
+  --rose-bg: #5c3436;
+  --rose-fg: #f3b0b0;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-sh-l: var(--sh-l);
+  --color-sh-d: var(--sh-d);
+  --color-blue-bg: var(--blue-bg);
+  --color-blue-fg: var(--blue-fg);
+  --color-green-bg: var(--green-bg);
+  --color-green-fg: var(--green-fg);
+  --color-yellow-bg: var(--yellow-bg);
+  --color-yellow-fg: var(--yellow-fg);
+  --color-rose-bg: var(--rose-bg);
+  --color-rose-fg: var(--rose-fg);
+  --font-sans: "Nunito Sans", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.neu {
+  box-shadow: 9px 9px 18px var(--sh-d), -9px -9px 18px var(--sh-l);
+}
+.neu-sm {
+  box-shadow: 5px 5px 10px var(--sh-d), -5px -5px 10px var(--sh-l);
+}
+.neu-inset {
+  box-shadow: inset 4px 4px 8px var(--sh-d), inset -4px -4px 8px var(--sh-l);
+}
+.neu-btn {
+  box-shadow: 5px 5px 10px var(--sh-d), -5px -5px 10px var(--sh-l);
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.neu-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+.neu-btn:active:not(:disabled) {
+  box-shadow: inset 3px 3px 6px var(--sh-d), inset -3px -3px 6px var(--sh-l);
+  transform: none;
+}
+.neu-btn:disabled {
+  box-shadow: none;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
+}
